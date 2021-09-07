@@ -1,0 +1,23 @@
+{
+    "name": "cs-live-preview-data-viewer",
+    "version": "0.0.1",
+    "description": "data viewer for cs live preview",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon app.js",
+        "start": "node app.js"
+    },
+    "author": "@Deepak-kharah",
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.12.4",
+        "nodemon": "^2.0.12",
+        "nunjucks": "^3.2.3"
+    },
+    "devDependencies": {
+        "express-generator": "^4.12.4"
+    }
+}

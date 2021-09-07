@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="padding: 5rem 2rem;">
+            {% block content %}
+
+            {% endblock %}
+            <p class="current_path"><strong>current path: </strong>{{path}}</p>
+            <a href={{nextPath}}>next page</a>
+            <hr>
+            <p class="title" {{ data.$.title }}>Title - {{data.title}}</p>
+
+            <p class="url" {{ data.$.url }}>Url - {{data.url}}</p>
+
+            <p class="single_line" {{ data.$.single_line }}>SingleLine - {{data.single_line}}</p>
+
+            <p class="multi_line" {{ data.$.multi_line }}>MultiLine - {{data.multi_line}}</p>
+
+            <p class="rich_text_editor" {{ data.$.rich_text_editor }}>RTE -{{data.rich_text_editor}}</p>
+
+            <p class="json_rte" {{ data.json_rte.$.children }}>JSON RTE - {{data.json_rte.children[0].children[0].text}}
+            </p>
+
+            <p class="markdown" {{ data.$.markdown }}>Markdown - {{data.markdown}}</p>
+
+            <p class="select" {{ data.$.select }}>Select - {{data.select}}</p>
+
+            <p class="modular_blocks[0].Block1.modular_blocks[0].insideBlock.single_line" {{
+                data.modular_blocks[0].Block1.modular_blocks[0].insideBlock.$.single_line }}>Modular_Blocks -
+                {{data.modular_blocks[0].Block1.modular_blocks[0].insideBlock.single_line}}</p>
+
+            <p clas="number" {{ data.$.number }}>Number - {{data.number}}</p>
+
+            <p class="boolean" {{ data.$.boolean }}>Boolean - {{data.boolean}}</p>
+
+            <p class="date" {{ data.$.date }}>Date - {{data.date}}</p>
+
+            <p class="file" {{ data.file.$.url }}>
+            <h3>File</h3>
+            <p class="filename" {{data.file.$.filename}}>{{data.file.filename}} </p><img class="file_url" src={{data.file.url}}
+                height="200px" width="200px"></p>
+
+            <h3>Link</h3>
+            <p class="link_title">
+                <span {{ data.link.$.title }}>
+                    link title - {{data.link.title}}
+                </span>
+                href - <a {{data.link.$.href}} class="link_href" href={{data.link.href}}>{{data.link.href}}</a>
+            </p>
+
+            <p class="reference" {{ data.$.reference }}>
+            <h3>Reference</h3>
+            <p class="reference_uid">UID - {{data.reference[0].uid}} <br> CT uid -
+                {{data.reference[0]._content_type_uid}} </p>
+            </p>
+
+            <p class="group-group" {{ data.group.group.$.single_line }}>Group - {{data.group.group.single_line}}</p>
+
+            <p class="global_field_single_line" {{ data.global_field.$.single_line }}>Global_Field -
+                {{data.global_field.single_line}}</p>
+
+            <p class="custom" {{ data.$.custom }}>Custom - {{data.custom}}</p>
+
+            <p class="tags" {{ data.$.tags }}>Tags - {{data.tags}}</p>
+        </div>
+        <h3>Complete data</h3>
+        {{data.link.$.title | dump}}
+        <p style="padding: 5rem 0;">{{data |dump }}</p>
+    </div>
+</div>
+<script type="text/javascript" src="/live-preview"></script>
+<script>
+    ContentstackLivePreview.init({
+        enable: true,
+        stackDetails: {
+            apiKey: 'bltbc136c4e7952c0ed',
+        },
+        clientUrlParams: {
+            protocol: 'https',
+            host: 'dev16-app.contentstack.com',
+            port: '443'
+        },
+        shouldReload: true
+    })
+</script>
+{% endblock %}
